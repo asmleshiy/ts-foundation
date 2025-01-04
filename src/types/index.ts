@@ -12,3 +12,7 @@ export type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>,
 export type PercentType = IntRange<0, 101>
 
 export type Enum<T = string | number | boolean> = Record<Capitalize<string>, T>
+
+export type StringBase64 = string
+
+export type StringJson = string

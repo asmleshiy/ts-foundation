@@ -5,17 +5,17 @@ export type Combine<T> = {
 
 export type Select<
   TSelect extends object,
-  TFrom extends { [k in keyof TSelect]: any },
+  TFrom extends { [k in keyof TSelect]: any }
 > = Pick<TFrom, keyof TSelect>
 
 export type Subtract<
   TSubtract extends object,
-  TFrom extends { [k in keyof TSubtract]: any },
+  TFrom extends { [k in keyof TSubtract]: any }
 > = Omit<TFrom, keyof TSubtract>
 
 export type Difference<
   T1 extends object,
-  T2 extends object,
+  T2 extends object
 > = Combine<
   & Omit<T1, keyof T2>
   & Omit<T2, keyof T1>
@@ -23,12 +23,12 @@ export type Difference<
 
 export type Intersection<
   T1 extends object,
-  T2 extends object,
+  T2 extends object
 > = Omit<T2, keyof Difference<T1, T2>>
 
 export type Merge<
   T1 extends object,
-  T2 extends object,
+  T2 extends object
 > = Combine<
   & Difference<T1, T2>
   & Intersection<T1, T2>
@@ -36,7 +36,7 @@ export type Merge<
 
 export type Override<
   TFields extends object,
-  TFrom extends { [K in keyof TFields]: any },
+  TFrom extends { [K in keyof TFields]: any }
 > = Combine<
   & Omit<TFrom, keyof Intersection<TFrom, TFields>>
   & Omit<TFields, keyof Difference<TFrom, TFields>>
@@ -44,7 +44,7 @@ export type Override<
 
 export type Extend<
   TFields extends object,
-  TFrom extends object,
+  TFrom extends object
 > = Combine<
   & Omit<TFrom, keyof Intersection<TFrom, TFields>>
   & TFields
@@ -112,7 +112,7 @@ export type KeysSelector<T extends object> = Checkbox<{
 
 export type SwitchSchema<
   TIn extends object,
-  TSchema extends { [K in keyof TIn]: string },
+  TSchema extends { [K in keyof TIn]: string }
 > = Combine<{
   [K in keyof TSchema as TSchema[K]]: K extends keyof TIn ? TIn[K] : never
 }>

@@ -15,7 +15,7 @@
     "strictPropertyInitialization": false,
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
   ],
   "exclude": [
     "dist",

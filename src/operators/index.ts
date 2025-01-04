@@ -1,8 +1,9 @@
-import { Mutable } from "../utils"
+import { Mutable } from '../utils'
 
 export function fromJson<T extends object> (value: string, factory?: (args: any) => T): T | undefined {
   try {
     const entry = JSON.parse(value)
+
     return factory?.(entry) ?? entry
   }
   catch {}
@@ -18,6 +19,7 @@ export function toJson<T extends object> (value: T): string | undefined {
 export function deepCopy<T extends object> (data: T): T | undefined {
   if (typeof data === 'object') {
     const json = toJson(data)
+
     if (json) {
       return fromJson<T>(json)
     }
