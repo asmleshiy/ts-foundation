@@ -1,0 +1,37 @@
+{
+  "name": "@ts-blueprints/bp",
+  "version": "0.0.1",
+  "description": "TypeScript blueprints",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "license": "MIT",
+  "author": "asmleshiy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asmleshiy/ts-blueprints.git",
+    "directory": "packages/bp"
+  },
+  "homepage": "https://github.com/asmleshiy/ts-blueprints/packages/bp#readme",
+  "keywords": [
+    "typescript",
+    "blueprints",
+    "backend",
+    "frontend",
+    "node",
+    "nest",
+    "react",
+    "vue",
+    "angular",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

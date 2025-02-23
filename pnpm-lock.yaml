@@ -45,6 +45,14 @@ importers:
         specifier: ^8.19.0
         version: 8.19.0(eslint@9.17.0)(typescript@5.4.5)
 
+  packages/bp: {}
+
+  packages/foundation:
+    devDependencies:
+      '@ts-blueprints/bp':
+        specifier: ^0.0.1
+        version: link:../bp
+
 packages:
 
   '@esbuild/aix-ppc64@0.21.5':

@@ -6,7 +6,6 @@ import importPlugin from 'eslint-plugin-import'
 import globals from 'globals'
 import typescriptLint from 'typescript-eslint'
 
-
 const lintTS = '@typescript-eslint'
 const stylisticTS = '@stylistic/ts'
 const stylisticJS = '@stylistic/js'
@@ -39,7 +38,7 @@ export default typescriptLint.config(
   {
     ignores: [
       'node_modules/*',
-      'dist/*',
+      '**/dist/*',
       'gitignore/*',
       '**/.gitignore/*',
     ],

@@ -1,0 +1,40 @@
+{
+  "name": "@ts-blueprints/foundation",
+  "version": "0.0.1",
+  "description": "TypeScript foundation",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "license": "MIT",
+  "author": "asmleshiy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asmleshiy/ts-blueprints.git",
+    "directory": "packages/foundation"
+  },
+  "homepage": "https://github.com/asmleshiy/ts-blueprints/packages/foundation#readme",
+  "devDependencies": {
+    "@ts-blueprints/bp": "^0.0.1"
+  },
+  "keywords": [
+    "typescript",
+    "blueprints",
+    "backend",
+    "frontend",
+    "node",
+    "nest",
+    "react",
+    "vue",
+    "angular",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

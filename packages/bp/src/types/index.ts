@@ -1,7 +1,10 @@
+import { ObjectKeys } from '../utils'
 
 export type Dictionary<TKey extends string | number | symbol, TValue> = {
   [key in TKey]?: TValue
 }
+
+export type Blueprint<T extends object = object> = Record<ObjectKeys<T>, undefined>
 
 type Enumerate<N extends number, Values extends number[] = []> = Values['length'] extends N
   ? Values[number]

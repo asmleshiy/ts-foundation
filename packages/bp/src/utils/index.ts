@@ -50,6 +50,34 @@ export type Extend<
   & TFields
 >
 
+export type RootProjection<T extends object> = Combine<{
+  [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K]
+}>
+
+export type Projection<T extends object> = Combine<{
+  [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K] extends object
+    ? T[K] extends Array<infer U>
+      ? U extends object ? Projection<U>[] : U[]
+      : Projection<T[K]>
+    : T[K]
+}>
+
+export type RootImmutable<T extends object> = Combine<
+  Readonly<{
+    [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K]
+  }>
+>
+
+export type Immutable<T extends object> = Combine<
+  Readonly<{
+    [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K] extends object
+      ? T[K] extends Array<infer U>
+        ? U extends object ? Projection<U>[] : U[]
+        : Immutable<T[K]>
+      : T[K]
+  }>
+>
+
 export type ObjectKeys<T> = {
   [K in keyof T]: T[K] extends Function ? never : K
 }[keyof T] & string
@@ -114,7 +142,7 @@ export type SwitchSchema<
   TIn extends object,
   TSchema extends { [K in keyof TIn]: string }
 > = Combine<{
-  [K in keyof TSchema as TSchema[K]]: K extends keyof TIn ? TIn[K] : never
+  -readonly [K in keyof TSchema as TSchema[K]]: K extends keyof TIn ? TIn[K] : never
 }>
 
 export type FlipSchema<
@@ -122,3 +150,25 @@ export type FlipSchema<
 > = Combine<{
   [K in keyof T as T[K]]: K
 }>
+
+export type RefSchema<T extends object> = {
+  [K in keyof T]: K extends string ? `ref_${ K }` : never
+}
+
+export type Ref<
+  T extends object,
+  TSchema = FlipSchema<RefSchema<T>>
+> = {
+  [K in keyof TSchema]: TSchema[K] extends keyof T ? T[TSchema[K]] : never
+}
+
+export type TmpSchema<T extends object> = {
+  [K in keyof T]: K extends string ? `tmp_${ K }` : never
+}
+
+export type Tmp<
+  T extends object,
+  TSchema = FlipSchema<TmpSchema<T>>
+> = {
+  [K in keyof TSchema]: TSchema[K] extends keyof T ? T[TSchema[K]] : never
+}
