@@ -1,12 +1,13 @@
 {
-  "name": "@ts-blueprints/foundation",
+  "name": "@ts-foundation/projections",
   "version": "0.0.1",
-  "description": "TypeScript foundation",
+  "description": "TypeScript projections",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup"
@@ -15,12 +16,12 @@
   "author": "asmleshiy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asmleshiy/ts-blueprints.git",
-    "directory": "packages/foundation"
+    "url": "git+https://github.com/asmleshiy/ts-foundation.git",
+    "directory": "packages/projections"
   },
-  "homepage": "https://github.com/asmleshiy/ts-blueprints/packages/foundation#readme",
+  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/projections#readme",
   "devDependencies": {
-    "@ts-blueprints/bp": "^0.0.1"
+    "@ts-foundation/utilities": "^0.0.1"
   },
   "keywords": [
     "typescript",

@@ -1,12 +1,13 @@
 {
-  "name": "@ts-blueprints/bp",
+  "name": "@ts-foundation/blueprints",
   "version": "0.0.1",
   "description": "TypeScript blueprints",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup"
@@ -15,10 +16,10 @@
   "author": "asmleshiy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asmleshiy/ts-blueprints.git",
-    "directory": "packages/bp"
+    "url": "git+https://github.com/asmleshiy/ts-foundation.git",
+    "directory": "packages/blueprints"
   },
-  "homepage": "https://github.com/asmleshiy/ts-blueprints/packages/bp#readme",
+  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/blueprints#readme",
   "keywords": [
     "typescript",
     "blueprints",

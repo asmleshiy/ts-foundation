@@ -1,8 +1,8 @@
-import { default as NS } from './projections.types'
+import * as NS from './projections.types'
 
 const _immutable = <
   TData extends object
-> (data: TData): NS.Immutable<TData> => {
+> (data: TData): NS.DeepImmutable<TData> => {
 
   const entries = Object.entries(data)
     .filter(([, value]) => typeof value !== 'function')
@@ -15,7 +15,24 @@ const _immutable = <
 
   return Object.freeze(
     Object.fromEntries(entries),
-  ) as NS.Immutable<TData>
+  ) as NS.DeepImmutable<TData>
+}
+
+const _projection = <TData extends object>(data: TData): NS.DeepProjection<TData> => {
+  const entries = Object.entries(data)
+    .filter(([, value]) =>
+      typeof value !== 'function'
+        && typeof value !== 'symbol',
+    )
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([key, value]) => [
+      key,
+      value && typeof value === 'object'
+        ? _projection(value)
+        : value,
+    ])
+
+  return Object.fromEntries(entries) as NS.DeepProjection<TData>
 }
 
 export default {
@@ -86,9 +103,9 @@ export default {
   },
 
   switchSchema: <
-    TIn extends object,
-    TSchema extends { [K in keyof TIn]: string }
-  > (args: TIn, schema: TSchema): NS.SwitchSchema<TIn, TSchema> => {
+    T extends object,
+    TSchema extends Record<(keyof T | string), string>
+  > (args: T, schema: TSchema): NS.SwitchSchema<T, TSchema> => {
 
     const entries = Object.entries(args)
       .filter(([key, value]) =>
@@ -96,11 +113,11 @@ export default {
         && typeof value !== 'function',
       )
       .map(([key, value]) => [
-        schema[key as keyof TIn],
+        schema[key as keyof T],
         value,
       ])
 
-    return Object.fromEntries(entries) as NS.SwitchSchema<TIn, TSchema>
+    return Object.fromEntries(entries) as NS.SwitchSchema<T, TSchema>
   },
 
   flipSchema: <
@@ -113,10 +130,6 @@ export default {
 
     return Object.fromEntries(entries) as NS.FlipSchema<TSchema>
   },
-
-  immutable: <
-    TData extends object
-  > (data: TData): NS.Immutable<TData> => _immutable(data),
 
   lens: <
     TLens extends NS.Lens<object>,
@@ -136,15 +149,35 @@ export default {
     return Object.fromEntries(entries) as NS.LensProjection<TLens, TData>
   },
 
+  immutable: <
+    TData extends object
+  > (data: TData): NS.DeepImmutable<TData> => _immutable(data),
+
   projection: <
     TData extends object
-  > (data: TData): NS.Projection<TData> => {
+  > (data: TData): NS.DeepProjection<TData> => _projection(data),
 
-    const entries = Object.entries(data)
-      .filter(([, value]) => typeof value !== 'function')
-      .sort(([a], [b]) => a.localeCompare(b))
+  groupBy: <
+    T extends object,
+    K extends string = string
+  > (
+    entries: T[],
+    by: (entry: T) => K,
+  ): Record<K, T[]> => {
 
-    return Object.fromEntries(entries) as NS.Projection<TData>
+    const result: Record<string, T[]> = {}
+
+    for (const entry of entries) {
+
+      const key = by(entry)
+
+      if (!result[key]) {
+        result[key] = []
+      }
+
+      result[key].push(entry)
+    }
+
+    return result
   },
-
 }

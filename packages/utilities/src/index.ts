@@ -1,3 +1,9 @@
+type _Enumerate<
+  N extends number,
+  Values extends number[] = []
+> = Values['length'] extends N
+  ? Values[number]
+  : _Enumerate<N, [...Values, Values['length']]>
 
 export type Combine<T> = {
   [K in keyof T]: T[K]
@@ -48,34 +54,6 @@ export type Extend<
 > = Combine<
   & Omit<TFrom, keyof Intersection<TFrom, TFields>>
   & TFields
->
-
-export type RootProjection<T extends object> = Combine<{
-  [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K]
-}>
-
-export type Projection<T extends object> = Combine<{
-  [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K] extends object
-    ? T[K] extends Array<infer U>
-      ? U extends object ? Projection<U>[] : U[]
-      : Projection<T[K]>
-    : T[K]
-}>
-
-export type RootImmutable<T extends object> = Combine<
-  Readonly<{
-    [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K]
-  }>
->
-
-export type Immutable<T extends object> = Combine<
-  Readonly<{
-    [K in (keyof T & (string | number)) as T[K] extends Function ? never : K]: T[K] extends object
-      ? T[K] extends Array<infer U>
-        ? U extends object ? Projection<U>[] : U[]
-        : Immutable<T[K]>
-      : T[K]
-  }>
 >
 
 export type ObjectKeys<T> = {
@@ -138,37 +116,14 @@ export type KeysSelector<T extends object> = Checkbox<{
   [K in ObjectKeys<T>]: true
 }>
 
-export type SwitchSchema<
-  TIn extends object,
-  TSchema extends { [K in keyof TIn]: string }
-> = Combine<{
-  -readonly [K in keyof TSchema as TSchema[K]]: K extends keyof TIn ? TIn[K] : never
-}>
-
-export type FlipSchema<
-  T extends Record<string, string>
-> = Combine<{
-  [K in keyof T as T[K]]: K
-}>
-
-export type RefSchema<T extends object> = {
-  [K in keyof T]: K extends string ? `ref_${ K }` : never
+export type Dictionary<TKey extends string | number | symbol, TValue> = {
+  [key in TKey]?: TValue
 }
 
-export type Ref<
-  T extends object,
-  TSchema = FlipSchema<RefSchema<T>>
-> = {
-  [K in keyof TSchema]: TSchema[K] extends keyof T ? T[TSchema[K]] : never
-}
+export type Blueprint<T extends object = object> = Record<ObjectKeys<T>, undefined>
 
-export type TmpSchema<T extends object> = {
-  [K in keyof T]: K extends string ? `tmp_${ K }` : never
-}
+export type IntRange<F extends number, T extends number> = Exclude<_Enumerate<T>, _Enumerate<F>>
 
-export type Tmp<
-  T extends object,
-  TSchema = FlipSchema<TmpSchema<T>>
-> = {
-  [K in keyof TSchema]: TSchema[K] extends keyof T ? T[TSchema[K]] : never
-}
+export type PercentType = IntRange<0, 101>
+
+export type Enum<T = string | number | boolean> = Record<Capitalize<string>, T>

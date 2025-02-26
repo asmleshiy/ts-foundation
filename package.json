@@ -1,5 +1,5 @@
 {
-  "name": "ts-blueprints",
+  "name": "ts-foundation",
   "version": "0.0.1",
   "description": "TypeScript blueprints",
   "main": "dist/index.js",
@@ -12,8 +12,10 @@
   "scripts": {
     "lint": "tsc",
     "prepublish": "npm run build -ws",
-    "bp:build": "npm run build -w packages/bp",
-    "fn:build": "npm run build -w packages/foundation"
+    "bp:build": "npm run build -w packages/blueprints",
+    "pr:build": "npm run build -w packages/projections",
+    "ut:build": "npm run build -w packages/utilities",
+    "se:build": "npm run build -w packages/serialization"
   },
   "author": "asmleshiy",
   "devDependencies": {

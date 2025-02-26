@@ -13,12 +13,13 @@
     "strictPropertyInitialization": false,
   },
   "include": [
-    "packages/bp/src/**/*.ts",
-    "packages/foundation/src/**/*.ts", "packages/foundation/src/.gitignore.ts", "packages/foundation/src/.gitignore.ts",
+    "packages/blueprints/src/**/*.ts",
+    "packages/projections/src/**/*.ts",
+    "packages/serialization/src/**/*.ts",
+    "packages/utilities/src/**/*.ts",
   ],
   "exclude": [
-    "dist",
-    "node_modules",
-    "*gitignore",
+    "**/node_modules",
+    "**/dist",
   ]
 }
