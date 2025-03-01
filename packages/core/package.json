@@ -1,7 +1,7 @@
 {
-  "name": "@ts-foundation/utilities",
+  "name": "@ts-foundation/core",
   "version": "0.0.1",
-  "description": "TypeScript utility types",
+  "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -17,9 +17,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asmleshiy/ts-foundation.git",
-    "directory": "packages/utilities"
+    "directory": "packages/core"
   },
-  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/utilities#readme",
+  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/core#readme",
   "keywords": [
     "typescript",
     "blueprints",

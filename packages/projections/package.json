@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/asmleshiy/ts-foundation/packages/projections#readme",
   "devDependencies": {
-    "@ts-foundation/utilities": "^0.0.1"
+    "@ts-foundation/core": "^0.0.1"
   },
   "keywords": [
     "typescript",

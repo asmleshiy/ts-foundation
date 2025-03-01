@@ -47,15 +47,15 @@ importers:
 
   packages/blueprints: {}
 
+  packages/core: {}
+
   packages/projections:
     devDependencies:
-      '@ts-foundation/utilities':
+      '@ts-foundation/core':
         specifier: ^0.0.1
-        version: link:../utilities
+        version: link:../core
 
   packages/serialization: {}
-
-  packages/utilities: {}
 
 packages:
 

@@ -16,10 +16,10 @@
     "packages/blueprints/src/**/*.ts",
     "packages/projections/src/**/*.ts",
     "packages/serialization/src/**/*.ts",
-    "packages/utilities/src/**/*.ts",
+    "packages/core/src/**/*.ts",
   ],
   "exclude": [
     "**/node_modules",
     "**/dist",
-  ]
+  ],
 }

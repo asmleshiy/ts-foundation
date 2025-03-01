@@ -1,10 +1,5 @@
 {
   "name": "ts-foundation",
-  "version": "0.0.1",
-  "description": "TypeScript blueprints",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "license": "MIT",
   "workspaces": [
     "packages/*"
@@ -12,9 +7,9 @@
   "scripts": {
     "lint": "tsc",
     "prepublish": "npm run build -ws",
+    "co:build": "npm run build -w packages/core",
     "bp:build": "npm run build -w packages/blueprints",
     "pr:build": "npm run build -w packages/projections",
-    "ut:build": "npm run build -w packages/utilities",
     "se:build": "npm run build -w packages/serialization"
   },
   "author": "asmleshiy",
