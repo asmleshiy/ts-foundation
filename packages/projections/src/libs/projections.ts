@@ -1,4 +1,4 @@
-import * as Core from '@ts-foundation/core'
+import { Checkbox } from '@ts-foundation/core'
 
 import * as NS from './projections.types'
 
@@ -135,7 +135,7 @@ export const projection = <
 
 export const lens = <
   TIn extends object,
-  TLens extends NS.Lens<Core.Checkbox<TIn>> = NS.Lens<Core.Checkbox<TIn>>,
+  TLens extends NS.Lens<Checkbox<TIn>> = NS.Lens<Checkbox<TIn>>,
   TData extends Partial<TIn> = Partial<TIn>
 > (
   data: TData,

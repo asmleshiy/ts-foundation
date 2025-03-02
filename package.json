@@ -9,8 +9,7 @@
     "prepublish": "npm run build -ws",
     "co:build": "npm run build -w packages/core",
     "bp:build": "npm run build -w packages/blueprints",
-    "pr:build": "npm run build -w packages/projections",
-    "se:build": "npm run build -w packages/serialization"
+    "pr:build": "npm run build -w packages/projections"
   },
   "author": "asmleshiy",
   "devDependencies": {

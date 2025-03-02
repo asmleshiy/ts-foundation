@@ -50,12 +50,10 @@ importers:
   packages/core: {}
 
   packages/projections:
-    devDependencies:
+    dependencies:
       '@ts-foundation/core':
         specifier: ^0.0.1
         version: link:../core
-
-  packages/serialization: {}
 
 packages:
 

@@ -20,7 +20,7 @@
     "directory": "packages/projections"
   },
   "homepage": "https://github.com/asmleshiy/ts-foundation/packages/projections#readme",
-  "devDependencies": {
+  "dependencies": {
     "@ts-foundation/core": "^0.0.1"
   },
   "keywords": [
