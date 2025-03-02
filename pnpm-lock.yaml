@@ -52,7 +52,7 @@ importers:
   packages/projections:
     dependencies:
       '@ts-foundation/core':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../core
 
 packages:

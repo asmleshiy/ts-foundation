@@ -19,9 +19,9 @@
     "url": "git+https://github.com/asmleshiy/ts-foundation.git",
     "directory": "packages/projections"
   },
-  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/projections#readme",
+  "homepage": "https://github.com/asmleshiy/ts-foundation/tree/master/packages/projections#readme",
   "dependencies": {
-    "@ts-foundation/core": "^0.0.1"
+    "@ts-foundation/core": "^0.0.2"
   },
   "keywords": [
     "typescript",

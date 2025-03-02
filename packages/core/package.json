@@ -1,6 +1,6 @@
 {
   "name": "@ts-foundation/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/asmleshiy/ts-foundation.git",
     "directory": "packages/core"
   },
-  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/core#readme",
+  "homepage": "https://github.com/asmleshiy/ts-foundation/tree/master/packages/core#readme",
   "keywords": [
     "typescript",
     "blueprints",

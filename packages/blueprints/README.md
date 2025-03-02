@@ -4,6 +4,7 @@ This library provides easy-to-use type templates to help you design models with 
 
 #### Installation
 
+> `npm i @ts-foundation/core`
 > `npm i -D @ts-foundation/blueprints`
 
 ---
