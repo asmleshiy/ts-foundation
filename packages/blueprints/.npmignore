@@ -2,6 +2,7 @@
 /src
 /.vscode
 *gitignore/
+*.gitignore.*
 *.env
 
 *.orig

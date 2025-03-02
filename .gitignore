@@ -7,6 +7,7 @@
 .conf/
 .data/
 *gitignore/
+*.gitignore.*
 private/secrets/
 dist/
 logs/
@@ -234,18 +235,6 @@ publish/
 # checkin your Azure Web App publish settings, but sensitive information contained
 # in these scripts will be unencrypted
 PublishScripts/
-
-# NuGet Packages
-*.nupkg
-# The packages folder can be ignored because of Package Restore
-**/[Pp]ackages/*
-# except build/, which is used as an MSBuild target.
-!**/[Pp]ackages/build/
-# Uncomment if necessary however generally it will be regenerated when needed
-#!**/[Pp]ackages/repositories.config
-# NuGet v3's project.json files produces more ignorable files
-*.nuget.props
-*.nuget.targets
 
 # Microsoft Azure Build Output
 csx/

@@ -1,36 +1,32 @@
 {
-  "name": "ts-blueprints",
-  "version": "1.4.4",
-  "description": "TypeScript blueprints",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "name": "ts-foundation",
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "prepublish": "pnpm run build",
-    "build": "tsup",
-    "lint": "tsc"
+    "lint": "tsc",
+    "prepublish": "npm run build -ws",
+    "co:build": "npm run build -w packages/core",
+    "bp:build": "npm run build -w packages/blueprints",
+    "pr:build": "npm run build -w packages/projections"
   },
   "author": "asmleshiy",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/asmleshiy/ts-foundation.git"
-  },
-  "homepage": "https://github.com/asmleshiy/ts-foundation/tree/develop/packages/blueprints#readme",
-  "keywords": [
-    "typescript",
-    "blueprints",
-    "backend",
-    "frontend",
-    "node",
-    "nest",
-    "react",
-    "vue",
-    "angular",
-    "types"
-  ],
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "@stylistic/eslint-plugin-ts": "^2.12.1",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-import": "^2.31.0",
+    "globals": "^15.14.0",
     "tsup": "^8.1.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.19.0"
+  },
+  "overrides": {
+    "eslint": "^9.7.0"
   }
 }
