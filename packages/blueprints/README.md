@@ -1,22 +1,24 @@
-# ts-blueprints
+# @ts-foundation/blueprints
 
 This library provides easy-to-use type templates to help you design models with standardized field names. It also helps prevent typos during development.
 
 #### Installation
 
-> `npm i ts-blueprints`
+> `npm i -D @ts-foundation/blueprints`
 
-#### Usage
+---
+
+#### USAGE
 
 `types.ts`
 
 ```
+import { snakecase as bp } from '@ts-foundation/blueprints'
 import {
-  snakecase as bp,
   Combine,
   Select,
   Subtract,
-} from 'ts-blueprints'
+} from '@ts-foundation/core'
 
 export type Entity = Combine<
   & bp.Id<number>
@@ -113,9 +115,62 @@ Using this library you can also create your own customized blueprint types that 
 `types/blueprints.ts`
 
 ```
-import { snakecase as bp } from 'ts-blueprints'
+import { snakecase as bp } from '@ts-foundation/blueprints'
 
 export type Id<T extends string | number = undefined> = bp.Id<T>
 export type CreatedAt<T extends string | number | Date = undefined> = bp.CreatedAt<T>
 
 ```
+
+---
+
+#### FEATURES:
+
+##### 1. snakecase
+
+***[Description]:***
+
+* *Provides a dictionary of type blueprints in snake case style*
+
+***[Convention]:***
+
+* *Each blueprint type name can contain both uppercase and lowercase letters and numbers*
+* *Each blueprint type name should starts with capital letter*
+* *Each blueprint type should contain only one field that matches its name*
+* *Each blueprint field name can contains only lowercase letters, numbers and underscore*
+* *Each capital letter in the blueprint type name means that an underscore separator appears before it in the field name. This logic also applies to numbers*
+
+***[Example]:***
+
+```
+
+  export type Id <T = unknown> = { id: T }
+  export type UserId <T = unknown> = { user_id: T }
+  export type Arg1 <T = unknown> = { arg_1: T }
+
+```
+
+#### 2. camelcase
+
+***[Description]:***
+
+* *Provides a dictionary of type blueprints in camel case style*
+
+***[Convention]:***
+
+* *Each blueprint type name can contain both uppercase and lowercase letters and numbers*
+* *Each blueprint type name should starts with capital letter*
+* *Each blueprint type should contain only one field that matches its name*
+* *Each blueprint field name must start with a lowercase letter*
+
+***[Example]:***
+
+```
+
+  export type Id <T = unknown> = { id: T }
+  export type UserId <T = unknown> = { userId: T }
+  export type Arg1 <T = unknown> = { arg1: T }
+  
+```
+
+---

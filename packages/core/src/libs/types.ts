@@ -1,3 +1,11 @@
+type Enumerate<
+  N extends number,
+  Values extends number[] = []
+> = Values['length'] extends N
+  ? Values[number]
+  : Enumerate<N, [...Values, Values['length']]>
+
+export type Nil = null | undefined
 
 export type Combine<T> = {
   [K in keyof T]: T[K]
@@ -110,15 +118,14 @@ export type KeysSelector<T extends object> = Checkbox<{
   [K in ObjectKeys<T>]: true
 }>
 
-export type SwitchSchema<
-  TIn extends object,
-  TSchema extends { [K in keyof TIn]: string }
-> = Combine<{
-  [K in keyof TSchema as TSchema[K]]: K extends keyof TIn ? TIn[K] : never
-}>
+export type Dictionary<TKey extends string | number | symbol, TValue> = {
+  [key in TKey]?: TValue
+}
 
-export type FlipSchema<
-  T extends Record<string, string>
-> = Combine<{
-  [K in keyof T as T[K]]: K
-}>
+export type Blueprint<T extends object = object> = Record<ObjectKeys<T>, undefined>
+
+export type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
+
+export type PercentType = IntRange<0, 101>
+
+export type Enum<T = string | number | boolean> = Record<Capitalize<string>, T>

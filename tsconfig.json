@@ -7,19 +7,19 @@
     "strict": true,
     "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
-    "declaration": true,
     "isolatedModules": true,
     "noEmit": true,
-    "outDir": "dist",
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
   },
   "include": [
-    "src/**/*.ts",
+    "packages/blueprints/src/**/*.ts",
+    "packages/projections/src/**/*.ts",
+    "packages/serialization/src/**/*.ts",
+    "packages/core/src/**/*.ts",
   ],
   "exclude": [
-    "dist",
-    "node_modules",
-    "*gitignore",
-  ]
+    "**/node_modules",
+    "**/dist",
+  ],
 }

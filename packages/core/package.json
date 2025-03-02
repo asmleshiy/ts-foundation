@@ -1,0 +1,38 @@
+{
+  "name": "@ts-foundation/core",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "license": "MIT",
+  "author": "asmleshiy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asmleshiy/ts-foundation.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/core#readme",
+  "keywords": [
+    "typescript",
+    "blueprints",
+    "backend",
+    "frontend",
+    "node",
+    "nest",
+    "react",
+    "vue",
+    "angular",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

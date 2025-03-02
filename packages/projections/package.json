@@ -1,0 +1,41 @@
+{
+  "name": "@ts-foundation/projections",
+  "version": "0.0.1",
+  "description": "TypeScript projections",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "license": "MIT",
+  "author": "asmleshiy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asmleshiy/ts-foundation.git",
+    "directory": "packages/projections"
+  },
+  "homepage": "https://github.com/asmleshiy/ts-foundation/packages/projections#readme",
+  "dependencies": {
+    "@ts-foundation/core": "^0.0.1"
+  },
+  "keywords": [
+    "typescript",
+    "blueprints",
+    "backend",
+    "frontend",
+    "node",
+    "nest",
+    "react",
+    "vue",
+    "angular",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
