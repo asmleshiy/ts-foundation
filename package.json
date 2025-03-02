@@ -1,6 +1,6 @@
 {
   "name": "ts-blueprints",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "TypeScript blueprints",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -14,9 +14,9 @@
   "author": "asmleshiy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asmleshiy/ts-blueprints.git"
+    "url": "git+https://github.com/asmleshiy/ts-foundation.git"
   },
-  "homepage": "https://github.com/asmleshiy/ts-blueprints#readme",
+  "homepage": "https://github.com/asmleshiy/ts-foundation/tree/develop/packages/blueprints#readme",
   "keywords": [
     "typescript",
     "blueprints",
